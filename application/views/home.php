@@ -10,7 +10,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>ZilevOS</title>
+	<title>ZilevOS - home</title>
 	<meta content="Daniel Andres Veliz Obregon" name="author" />
 	<meta content="Sistema operativo web online y offline. brinda un servicio de almacenamiento gratuito de 200Mb y interfaz personalizable. te brinda la seguridad de guardar tu archivos en la nube y compartirlo en las redes sociales." name="description" />
 	<meta content="sistema,operativo,sistema operativo,zilevos,veliz,zilev,so,os,sistema operativo zilev,sistema zilevos,offline,online,emulacion,sistemas operativos" name="keywords" />
