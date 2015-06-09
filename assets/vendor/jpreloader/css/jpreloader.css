@@ -1,0 +1,127 @@
+body{
+	display:none;
+}
+#jpreOverlay {
+	background: #000 url(../../../img/wallpapper/loading.jpg) center no-repeat;
+}
+#jpreSlide{
+	font-size:22px;
+	font-weight:bold;
+	color:#ccc;
+	text-align:center;
+	width:100%;
+	height:100%;
+}
+#jpreLoader{
+	width: 100%;
+    height: 3px;
+}
+#jpreBar {
+	background-color:#fe4620;
+		
+	animation: progress 2s linear infinite;
+	-moz-animation: progress 2s linear infinite;
+	-webkit-animation: progress 2s linear infinite;
+	-ms-animation: progress 2s linear infinite;
+	-o-animation: progress 2s linear infinite;	
+}
+#jprePercentage {
+	color:#ccc;
+	font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;
+	font-weight:bold;
+	text-align:center;
+	text-shadow:1px 1px 1px #333;
+	top:-100%;
+	display: none;
+}
+#jpreButton{
+	padding:0;
+	cursor:pointer;
+	font-weight:bold;
+	line-height:1.5;
+	text-align:center;
+	width:30px;
+	margin:0 auto;
+	margin-right: 20px;
+	margin-top: 20px;
+	color:#83878A;
+	height: 30px !important;
+	background: none;
+	border-radius: 100%;
+	text-indent: -9999px;
+	background: url(../../../img/iconos/arrow-next.png) center no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+#jpreButton:hover,
+#jpreButton:focus{
+	background: url(../../../img/iconos/arrow-next-hover.png) center no-repeat;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+@-webkit-keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -60px -60px;
+  }
+}
+@-moz-keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -60px -60px;
+  }
+}
+@-ms-keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -60px -60px;
+  }
+}
+@-o-keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -60px -60px;
+  }
+}
+@keyframes progress {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -60px -60px;
+  }
+}
+#jSplash{
+	width: 100%;
+	height: 100%;
+}
+
+#jSplash h1{
+	margin: 0;
+	font-size: 26px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	margin-top: 60px;
+	font-weight: normal;
+}
+#jSplash h6{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 20px;
+	margin: 0;
+    opacity: 0.4;
+}

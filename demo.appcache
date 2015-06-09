@@ -1,0 +1,7 @@
+CACHE MANIFEST
+# 2015-05-25 v1.0.2
+http://localhost/personal/zilevos/v1/demo.html
+
+
+FALLBACK:
+/html/ http://localhost/personal/zilevos/v1/offline
