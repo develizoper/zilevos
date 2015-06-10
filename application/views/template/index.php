@@ -35,9 +35,10 @@
 	<meta name="msapplication-TileImage" content="<?=base_url();?>assets/img/logo/logox64.png"> <!-- 32x32 or 64x64 -->
 
 	<link rel="stylesheet" href="<?=base_url();?>assets/css/normalize.css">
+	<link rel="stylesheet" href="<?=base_url();?>assets/vendor/jqueryiu/jquery-ui.css" />
+	<link rel="stylesheet" href="<?=base_url();?>assets/vendor/jqueryiu/jquery-ui.theme.css" />
 	<link rel="stylesheet" href="<?=base_url();?>assets/css/main.min.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/vendor/jpreloader/css/jpreloader.css" />
-	<link rel="stylesheet" href="<?=base_url();?>assets/vendor/login/css/style.css" />
 	<link rel="stylesheet" href="<?=base_url();?>assets/css/glyphicon.css" />
 
 	<!--[if lte IE 7]>
@@ -52,20 +53,14 @@
 	<?php foreach ($style as $css):?>
 		<link rel="stylesheet" href="<?=base_url();?>assets/<?=$css?>">
 	<?php endforeach; ?>
-</head>
-<body>
-	<input id="base_url" type="hidden" value="<?=base_url()?>">
-
-	<?php foreach ($body as $section):?>
-		<?=$section; ?>
-	<?php endforeach; ?>
 
 	<script type="text/javascript" src="<?=base_url();?>assets/js/jquery-1.11.3.min.js"></script>
-	<script>window.jQuery || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"><\/script>')</script>
+	<script>window.jQuery || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"><\/script>')</script>
 	
 	<script type="text/javascript" src="<?=base_url();?>assets/vendor/jpreloader/js/jpreloader.min.js"></script>
-	<script type="text/javascript" src="<?=base_url();?>assets/js/plugins.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>assets/js/jquery.history.js"></script>
+	<script type="text/javascript" src="<?=base_url();?>assets/vendor/jqueryiu/jquery-ui.js"></script>
+	<script type="text/javascript" src="<?=base_url();?>assets/js/plugins.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>assets/js/main.js"></script>
 
 	<?php foreach ($script as $js):?>
@@ -81,6 +76,13 @@
 			});
 		});
 	</script>
+</head>
+<body>
+	<input id="base_url" type="hidden" value="<?=base_url()?>">
+
+	<?php foreach ($body as $section):?>
+		<?=$section; ?>
+	<?php endforeach; ?>
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

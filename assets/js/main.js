@@ -3,10 +3,6 @@
 		e.preventDefault();
 		href = $(this).attr("href");
 		History.pushState({url:href}, document.title, href);
-
-		$.get(href, function(data) {
-			$('body').html(data);
-		});
 	});
 
 	History.Adapter.bind(window,'statechange',function(){
@@ -15,8 +11,17 @@
 		console.log(History.getState().data);
 		console.log('---------------------------');
 
-		$.get(History.getState().data.url, function(data) {
-			$('#load').html(data);
+
+		$.ajax({
+			url: History.getState().data.url,
+			type: 'POST',
+			data: {ajax: true}
+		})
+		.done(function(e) {
+			$('body').html(e);
+		})
+		.fail(function() {
+			window.loaction='http://zilevos.iuxdev.com/fail';
 		});
 	});
 
@@ -33,44 +38,8 @@
 	})
 })(window);
 
-
-$('#login .back').click(function(event) {
-	alert('hola');
-	$.ajax({
-		url: $('#base_url').val()+'home/access',
-	})
-	.done(function(e) {
-		$('.login').html(e);
-		console.log(e);
-	})
-	.fail(function() {
-		$('.login').html('<h1>Error de carga</h1>');
-	});
-});
-
-$('#login_registered').click(function(event) {
-	$.ajax({
-		url: $('#base_url').val()+'login',
-	})
-	.done(function(e) {
-		$('.login').html(e);
-		console.log(e);
-	})
-	.fail(function() {
-		$('.login').html('<h1>Error de carga</h1>');
-	});
-});
-
-$('#login_anonymous').click(function(event) {
-	$.ajax({
-		url: $('#base_url').val()+'home/desktop',
-	})
-	.done(function(e) {
-		$('main').html(e);
-	})
-	.fail(function() {
-		$('.login').html('<h1>Error de carga</h1>');
-	});
+$(function() {
+	//History.pushState({url:window.location.href}, document.title, window.location.href);
 });
 
 $('#login_fb').click(function(event) {

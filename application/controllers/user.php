@@ -5,7 +5,7 @@ class User extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('modUser');
+		$this->load->model('moduser');
 	}
 
 	public function index()
@@ -15,15 +15,13 @@ class User extends CI_Controller {
 
 	public function login()
 	{
-		$data= array(
-			'tipo' => 'form',
-			'form' => 'login'
-		);
-		$this->load->view('acceso', $data);
-		/*echo $_GET['user']."<br>";
-		echo $_GET['pass']."<br>";
+		$ajax=(isset($_POST['js']) && $_POST['js']==1)?true:false;
 
-		var_dump($this->modUser->checkUser($_GET['user'],$_GET['pass']));*/
+		if ( !isset($_POST['user']) || !isset($_POST['pass']) ) die('-2');
+
+		$user=$_POST['user'];
+		$pass=$_POST['pass'];
+		echo $this->moduser->checkUser($user,$pass);
 	}
 }
 

@@ -3,53 +3,106 @@
 class Home extends CI_Controller {
 	public function index()
 	{
-		
-
-		$data = array(
-		    'title' => 'Sistema Operativo.',
-		    'style' => array('vendor/login/css/style.css'),
-		);
-
-		if($this->session->userdata('logged_in')){
-			$data['body']=array(
-				$this->load->view('desktop', '', true)
-		    );
+		if($this->session->userdata('usuario')){
+			$view='desktop';
+			$style=array();
 		}else{
-			$data['body']=array(
-				$this->load->view('access', '', true)
-		    );
+			$view='access';
+			$style=array('vendor/login/css/style.css');
 		}
 
-		$this->load->view('template/index', $data);
+		if (isset($_POST['ajax'])) {
+			$access['ajax']=true;
+
+			$this->load->view($view,$access);
+		}else{
+			$data = array(
+			    'title' => 'Sistema Operativo',
+			    'style' => $style,
+			    'script' => array()
+			);
+
+			$data['body']=array(
+				$this->load->view($view, '', true)
+		    );
+
+			$this->load->view('template/index', $data);
+		}
 	}
 	public function login()
 	{
-		$access= array(
-			'load'=>'login'
-		);
-		$data = array(
-		    'title' => 'Inicia Sesion.',
-		    'style' => array('vendor/login/css/style.css'),
-		    'body' => array(
-		    	$this->load->view('access', $access, true)
-		    )
-		);
-		$this->load->view('template/index', $data);
-	}
-	public function register()
-	{
-		$access= array(
-			'load'=>'register'
-		);
+		if($this->session->userdata('usuario')){
+			$title='Sistema Operativo';
+			$style=array();
+			$view='desktop';
+		}else{
+			$title='Inicia Sesion';
+			$style=array('vendor/login/css/style.css');
+			$view='access';
+			$access['load']='login';
+		}
+		
 
-		$data = array(
-		    'title' => '¡Registrate ya!.',
-		    'style' => array('vendor/login/css/style.css'),
-		    'body' => array(
-		    	$this->load->view('access', $access, true)
-		    )
-		);
-		$this->load->view('template/index', $data);
+		if (isset($_POST['ajax'])) {
+			$access['ajax']=true;
+			$this->load->view($view, $access);
+		}else{
+			$data = array(
+			    'title' => $title,
+			    'style' => $style,
+			    'script' => array(
+					'js/jquery.form.js',
+					'js/jquery.validate.js',
+					'js/jquery.validate.messages_es.js',
+					'js/jquery.validate.date.js',
+					'js/jquery.validate.alphanumeric.js',
+			    ),
+			    'body' => array(
+			    	$this->load->view($view, $access, true)
+			    )
+			);
+			$this->load->view('template/index', $data);
+		}
+	}
+	public function registrar()
+	{
+		if($this->session->userdata('usuario')){
+			$title='Sistema Operativo';
+			$style=array();
+			$view='desktop';
+		}else{
+			$title='¡Registrate ya!';
+			$style=array('vendor/login/css/style.css');
+			$view='access';
+			$access['load']='registrar';
+		}
+
+		if (isset($_POST['ajax'])) {
+			$access['ajax']=true;
+			$this->load->view($view, $access);
+		}else{
+			$data = array(
+			    'title' => $title,
+			    'style' => $style,
+			    'script' => array(
+					'js/jquery.form.js',
+					'js/jquery.validate.js',
+					'js/jquery.validate.messages_es.js',
+					'js/jquery.validate.date.js',
+					'js/jquery.validate.alphanumeric.js'
+			    ),
+			    'body' => array(
+			    	$this->load->view($view, $access, true)
+			    )
+			);
+			$this->load->view('template/index', $data);
+		}
+	}
+
+	public function prueba()
+	{
+		echo isset($_POST['ajax']);
+		$this->load->view('inicio/login');
 	}
 }
 
