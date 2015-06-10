@@ -17,11 +17,11 @@ class User extends CI_Controller {
 	{
 		$ajax=(isset($_POST['js']) && $_POST['js']==1)?true:false;
 
-		if ( !isset($_POST['user']) || !isset($_POST['pass']) ) die('-2');
+		if ( !isset($_POST['email']) || !isset($_POST['pass']) ) die('-2');
 
-		$user=$_POST['user'];
+		$email=$_POST['email'];
 		$pass=$_POST['pass'];
-		echo $this->moduser->checkUser($user,$pass);
+		echo $this->moduser->checkUser($email,$pass);
 	}
 }
 

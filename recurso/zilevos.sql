@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-05-2015 a las 22:13:30
+-- Tiempo de generación: 10-06-2015 a las 20:54:16
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -78,10 +78,13 @@ CREATE TABLE IF NOT EXISTS `logs` (
 
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `idusuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) NOT NULL,
-  `user` varchar(45) NOT NULL,
+  `idfb` varchar(45) DEFAULT NULL,
+  `nombres` varchar(45) NOT NULL,
+  `apellidos` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
   `pass` varchar(45) NOT NULL,
-  `foto` varchar(45) DEFAULT NULL,
+  `foto` text,
+  `tipo_usuario` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0=user registered with pass',
   PRIMARY KEY (`idusuario`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
@@ -89,8 +92,8 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`idusuario`, `nombre`, `user`, `pass`, `foto`) VALUES
-(1, 'Usuario', 'demo', 'demo', NULL);
+INSERT INTO `usuarios` (`idusuario`, `idfb`, `nombres`, `apellidos`, `email`, `pass`, `foto`, `tipo_usuario`) VALUES
+(1, NULL, 'daniel', 'veliz obregon', 'skl.andres.19@gmail.com', 'demo', NULL, 0);
 
 --
 -- Restricciones para tablas volcadas

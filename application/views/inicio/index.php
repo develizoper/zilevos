@@ -6,6 +6,7 @@
 
 <a href="<?=base_url();?>login" id="login_registered" class="btn history">Usuario Registrado</a>
 <a href="<?=base_url();?>login/anonimous" id="login_anonymous" class="btn history">Usuario Anonimo</a>
-<a href="<?=base_url();?>login/fb" id="login_fb" class="btn fb">Facebook</a>
+<a href="#" id="login_fb" class="btn fb">Facebook</a>
 
 <a href="<?=base_url();?>registrar" class="link history">Registrese aqui</a>
+<script type="text/javascript" src="<?=base_url();?>assets/js/login_fb.js"></script>

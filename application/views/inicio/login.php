@@ -11,7 +11,7 @@
 <h1>Iniciar Sesion</h1>
 <form id="frmlogin" action="<?=base_url();?>user/login" method="post">
 	<input id="js" type="hidden" name="js" value="0">
-	<div><input type ="text" placeholder="Usuario" name="user" class="first"></div>
+	<div><input type ="email" placeholder="E-mail" name="email" class="first"></div>
 	<div><input type ="password" placeholder="Contraseña" name="pass"></div>
 	<div><input type ="submit" class="btn" value="Ingresar"></div>
 </form>

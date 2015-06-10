@@ -17,14 +17,14 @@ class moduser extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from("usuarios");
-		$this->db->where('user',$user);
+		$this->db->where('email',$user);
 		$query = $this->db->get();
 
 		if ($query->num_rows()<=0) return -1;
 
-		$this->db->select('idusuario,nombre,user,foto');
+		$this->db->select('idusuario,nombres,apellidos,email,foto,tipo_usuario');
 		$this->db->from("usuarios");
-		$this->db->where('user',$user);
+		$this->db->where('email',$user);
 		$this->db->where('pass',$pass);
 		$query = $this->db->get();
 
