@@ -4,7 +4,7 @@
 <input type ="email" placeholder="E-mail" name="email"><br>
 <input type ="password" placeholder="Contraseña" name="pass"><br>
 <input type ="password" placeholder="Confirme Contraseña" name="confirpass"><br>
-<input type ="button" value="Registrar">
+<input type ="button" value="Registrar" class="btn">
 
 <a href="#back" class="link back"><i class="glyphicon glyphicon-arrow-left"></i></a>
 <a href="#login" class="link">Iniciar Sesion</a>

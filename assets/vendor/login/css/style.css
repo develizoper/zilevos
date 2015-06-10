@@ -76,7 +76,9 @@
 	margin-top: 10px;
 }
 
-.login input[type=button]{
+.login .btn{
+	display: block;
+  	text-decoration: none;
 	width: 100%;
     height: 35px;
     background: rgba(255, 255, 255, 0.11);
@@ -90,15 +92,15 @@
     padding: 6px;
     margin-top: 10px;
 }
-.login input[type=button].fb{
+.login .btn.fb{
 	background: #3C5A98;
 }
 
-.login input[type=button]:hover{
+.login .btn:hover{
 	opacity: 0.8;
 }
 
-.login input[type=button]:active{
+.login .btn:active{
 	opacity: 0.6;
 }
 
@@ -112,7 +114,7 @@
 	border: 1px solid rgba(255,255,255,0.9);
 }
 
-.login input[type=button]:focus{
+.login .btn:focus{
 	outline: none;
 }
 .login h1{

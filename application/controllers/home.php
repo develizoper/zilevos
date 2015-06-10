@@ -3,23 +3,53 @@
 class Home extends CI_Controller {
 	public function index()
 	{
-		$this->load->view('home');
-	}
-	public function desktop()
-	{
-		$this->load->view('desktop');
-	}
-	public function access()
-	{
-		$this->load->view('access');
+		
+
+		$data = array(
+		    'title' => 'Sistema Operativo.',
+		    'style' => array('vendor/login/css/style.css'),
+		);
+
+		if($this->session->userdata('logged_in')){
+			$data['body']=array(
+				$this->load->view('desktop', '', true)
+		    );
+		}else{
+			$data['body']=array(
+				$this->load->view('access', '', true)
+		    );
+		}
+
+		$this->load->view('template/index', $data);
 	}
 	public function login()
 	{
-		$this->load->view('frmlogin');
+		$access= array(
+			'load'=>'login'
+		);
+		$data = array(
+		    'title' => 'Inicia Sesion.',
+		    'style' => array('vendor/login/css/style.css'),
+		    'body' => array(
+		    	$this->load->view('access', $access, true)
+		    )
+		);
+		$this->load->view('template/index', $data);
 	}
 	public function register()
 	{
-		$this->load->view('frmregister');
+		$access= array(
+			'load'=>'register'
+		);
+
+		$data = array(
+		    'title' => '¡Registrate ya!.',
+		    'style' => array('vendor/login/css/style.css'),
+		    'body' => array(
+		    	$this->load->view('access', $access, true)
+		    )
+		);
+		$this->load->view('template/index', $data);
 	}
 }
 

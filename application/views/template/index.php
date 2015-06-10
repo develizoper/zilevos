@@ -10,12 +10,30 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>ZilevOS - home</title>
+	<title>ZilevOS</title>
 	<meta content="Daniel Andres Veliz Obregon" name="author" />
 	<meta content="Sistema operativo web online y offline. brinda un servicio de almacenamiento gratuito de 200Mb y interfaz personalizable. te brinda la seguridad de guardar tu archivos en la nube y compartirlo en las redes sociales." name="description" />
 	<meta content="sistema,operativo,sistema operativo,zilevos,veliz,zilev,so,os,sistema operativo zilev,sistema zilevos,offline,online,emulacion,sistemas operativos" name="keywords" />
 
+	<meta property="og:title" content="ZilevOS - Sistema Operativo Emulado en web"/>
+	<meta property="og:site_name" content="ZilevOS"/>
+	<meta property="og:type" content="Sistema Operativo"/>
+	<meta property="og:description" content="Sistema operativo web online y offline. brinda un servicio de almacenamiento gratuito de 200Mb y interfaz personalizable. te brinda la seguridad de guardar tu archivos en la nube y compartirlo en las redes sociales." />
+	<meta property="og:locale" content="es_PE" />
+	<meta property="article:author" content="https://www.facebook.com/veliz.skl" />
+	<meta property="og:url" content="<?=base_url();?>"/>
+	<meta property="og:image" content="<?=base_url();?>assets/img/logo/logo_fb.png"/>
+
 	<link rel="shortcut icon" href="<?=base_url();?>assets/img/logo/logo3.ico">
+
+	<!-- Apple devices -->
+	<link rel="apple-touch-icon-precomposed" href="<?=base_url();?>assets/img/logo/logox152.png" /> <!-- 152x152 -->
+	<link rel="icon" href="<?=base_url();?>assets/img/logo/logox64.png"> <!-- 32x32 or 64x64 -->
+
+	<!-- For Mobile Windows -->
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="<?=base_url();?>assets/img/logo/logox64.png"> <!-- 32x32 or 64x64 -->
+
 	<link rel="stylesheet" href="<?=base_url();?>assets/css/normalize.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/css/main.min.css">
 	<link rel="stylesheet" href="<?=base_url();?>assets/vendor/jpreloader/css/jpreloader.css" />
@@ -24,45 +42,35 @@
 
 	<!--[if lte IE 7]>
 		<link href="<?=base_url();?>assets/css/main.ie.css" rel="stylesheet">
-  <![endif]-->
+	<![endif]-->
 
-  <!--[if lte IE 8]>
+	<!--[if lte IE 8]>
 		<script src="<?=base_url();?>assets/js/respond.min.js"></script>
 		<script type="text/javascript" src="<?=base_url();?>assets/js/selectivizr.js"></script>
 	<![endif]-->
 
-	<!--[if lte IE 9]>
-		<script src="<?=base_url();?>assets/js/IE9.js"></script>
-		<script src="<?=base_url();?>assets/js/jquery.placeholder.js"></script>
-	<![endif]-->
+	<?php foreach ($style as $css):?>
+		<link rel="stylesheet" href="<?=base_url();?>assets/<?=$css?>">
+	<?php endforeach; ?>
 </head>
 <body>
 	<input id="base_url" type="hidden" value="<?=base_url()?>">
-	<div id="jSplash">
-		<h1>Iniciando ZilevOS</h1>
-		<h6>&copy; Develizoper 2015</h6>
-	</div>
 
-
-	<main class="">
-		<div id="login">
-			<div class  ="body"></div>
-			<div class  ="grad"></div>
-			<div class  ="header">
-				<div>Zilev<span>OS</span></div>
-			</div>
-			<br>
-
-			<div class="login"><?php $this->load->view('access');?></div>
-		</div>
-	</main>
+	<?php foreach ($body as $section):?>
+		<?=$section; ?>
+	<?php endforeach; ?>
 
 	<script type="text/javascript" src="<?=base_url();?>assets/js/jquery-1.11.3.min.js"></script>
 	<script>window.jQuery || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"><\/script>')</script>
 	
 	<script type="text/javascript" src="<?=base_url();?>assets/vendor/jpreloader/js/jpreloader.min.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>assets/js/plugins.js"></script>
+	<script type="text/javascript" src="<?=base_url();?>assets/js/jquery.history.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>assets/js/main.js"></script>
+
+	<?php foreach ($script as $js):?>
+ 		<script src="<?=base_url();?>assets/<?=$js?>"></script>
+	<?php endforeach; ?>
 
 	<script>
 		$(function() {
@@ -75,12 +83,13 @@
 	</script>
 
 	<script>
-		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-		function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-		e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-		e.src='//www.google-analytics.com/analytics.js';
-		r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-	ga('create','UA-XXXXX-X');ga('send','pageview');
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-28540217-3', 'auto');
+		ga('send', 'pageview');
 	</script>
 </body>
 </html>

@@ -50,7 +50,7 @@ $('#login .back').click(function(event) {
 
 $('#login_registered').click(function(event) {
 	$.ajax({
-		url: $('#base_url').val()+'home/login',
+		url: $('#base_url').val()+'login',
 	})
 	.done(function(e) {
 		$('.login').html(e);

@@ -1,7 +1,25 @@
-<h1>¿Como desar Ingresar?</h1>
+<div id="jSplash">
+	<h1>Iniciando ZilevOS</h1>
+	<h6>&copy; Develizoper 2015</h6>
+</div>
 
-<input id="login_registered" type="button" value="Usuario Registrado" class="first">
-<input id="login_anonymous" type="button" value="Usuario Anonimo">
-<input id="login_fb" type="button" value="Facebook" class="fb">
+<main class="">
+	<div id="login">
+		<div class ="body"></div>
+		<div class ="grad"></div>
+		<div class ="header">
+			<div>Zilev<span>OS</span></div>
+		</div>
+		<br>
 
-<a href="#registrar" class="link">Registrese aqui</a>
+		<div class="login">
+			<?php
+				if (!isset($load)) {
+					$this->load->view('inicio/index');
+				}else{
+					$this->load->view('inicio/'.$load);
+				}
+			?>
+		</div>
+	</div>
+</main>
