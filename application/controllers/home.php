@@ -64,6 +64,13 @@ class Home extends CI_Controller {
 			$this->load->view('template/index', $data);
 		}
 	}
+
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect(base_url());
+	}
+	
 	public function registrar()
 	{
 		if($this->session->userdata('usuario')){

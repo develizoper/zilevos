@@ -33,6 +33,18 @@ class moduser extends CI_Model {
 		$this->session->set_userdata('usuario',$query->row_array());
 		return 1;
 	}
+	public function registrar($data)
+	{
+		$this->db->trans_start();
+			$this->db->insert('usuarios', $data);
+		$this->db->trans_complete();
+
+		if ($this->db->trans_status() === FALSE){
+		    return 0;
+		}else{
+		    return 1;
+		}
+	}
 }
 
 /* End of file user.php */

@@ -11,7 +11,6 @@ class Offline extends CI_Controller {
 	{
 		$this->load->view('offline');
 	}
-
 }
 
 /* End of file offline.php */

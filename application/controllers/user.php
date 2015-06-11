@@ -23,6 +23,29 @@ class User extends CI_Controller {
 		$pass=$_POST['pass'];
 		echo $this->moduser->checkUser($email,$pass);
 	}
+
+	public function loginfb()
+	{
+		var_dump($_POST);
+	}
+	public function registrar()
+	{
+		$ajax=(isset($_POST['js']) && $_POST['js']==1)?true:false;
+
+		if (!isset($_POST['nombre']) ||
+			!isset($_POST['apellido']) ||
+			!isset($_POST['email']) ||
+			!isset($_POST['pass'])) die('-1');
+
+		$data=array(
+			'nombres' => $_POST['nombre'],
+			'apellidos' => $_POST['apellido'],
+			'email' => $_POST['email'],
+			'pass' => $_POST['pass'],
+		);
+
+		echo $this->moduser->registrar($data);
+	}
 }
 
 /* End of file user.php */

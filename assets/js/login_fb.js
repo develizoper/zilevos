@@ -40,6 +40,20 @@
 			console.log(JSON.stringify(response));
 			alert("Felicidades, estas logueado!");
 
+			$.ajax({
+				url: $('#base_url').val()+'user/loginfb',
+				type: 'POST',
+				data: JSON.stringify(response),
+			})
+			.done(function(response) {
+				console.log(response);
+			})
+			.fail(function() {
+				console.log("error");
+			})
+			.always(function() {
+				console.log("complete");
+			});
 			
 			/*$.ajax({
 				url: $('#base_url').val()+'home/desktop',

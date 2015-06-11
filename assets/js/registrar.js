@@ -1,8 +1,9 @@
 $(function() {
-	$('#frmlogin .btn').click(function () {
+	$('#frmregistro .btn').click(function () {
 		$('#js').val('1');
-	})
-	$('#frmlogin').validate({
+	});
+	
+	$('#frmregistro').validate({
 		errorClass:"has-error",
 		validClass:"has-success",
 		highlight: function(element, errorClass, validClass) {
@@ -12,35 +13,57 @@ $(function() {
 			$(element).parents("div").removeClass(errorClass).addClass(validClass);
 		},
 		rules: {
-			email      :{
+			nombre:{
+				required:true,
+				alpha:true
+			},
+			apellido:{
+				required:true,
+				alpha:true
+			},
+			email:{
 				required:true,
 				email:true
 			},
 			pass       :{
 				required:true,
+			},
+			confimpass       :{
+				required:true,
+				equalTo: "#password"
 			}
 		},
 		messages : {
-			email      :{
-				required:"Ingrese su correo.",
-				email   :"Correo no valido. Ej.: nombre@empresa.com."
+			nombre:{
+				required:"Por favor, ingrese su nombre.",
+				alpha:"Solo puede contener letras."
+			},
+			apellido:{
+				required:"Por favor, ingrese su apellido",
+				alpha:"Solo puede contener letras."
+			},
+			email:{
+				required:"Por favor, ingrese su email.",
+				email:"Correo no valido. Ej.: nombre@empresa.com"
 			},
 			pass       :{
-				required:"Ingrese su clave de usuario."
+				required:"Ingrese una clave.",
+			},
+			confimpass       :{
+				required:"Las claves con coinsiden.",
+				equalTo: "#password"
 			}
 		},
 		submitHandler:function() {
-			$('#frmlogin').ajaxSubmit({ 
+			$('#frmregistro').ajaxSubmit({ 
 				success: function(response) {
-					if (response=='-2') {
+					if (response=='-1') {
 						$('#dialog').attr('title', 'Formulario Vacio').html('<p>Ingrese sus datos de ususario.</P>');
-					}else if (response=='-1') {
-						$('#dialog').attr('title', 'Error de Sesion').html('<p>Usuario no existe, ingrese sus datos de usario.</P>');
 					}else if (response=='0') {
 						$('#dialog').attr('title', 'Error de Sesion').html('<p>Verifique su nombre de usuario y contraseña.</P>');
 					}else if (response=='1') {
 						History.pushState({url:$('#base_url').val()}, 'ZilevOS - Sistema Operativo', $('#base_url').val());
-						$('#frmlogin').clearForm().resetForm();
+						$('#frmregistro').clearForm().resetForm();
 						$('#dialog').attr('title', 'Iniciando Sesion.').html('<p>Espere mientras ingresa a su escritorio.</P>');
 					}else{
 						console.log(response);
