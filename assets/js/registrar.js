@@ -62,12 +62,28 @@ $(function() {
 					}else if (response=='0') {
 						$('#dialog').attr('title', 'Error de Sesion').html('<p>Verifique su nombre de usuario y contraseña.</P>');
 					}else if (response=='1') {
-						History.pushState({url:$('#base_url').val()}, 'ZilevOS - Sistema Operativo', $('#base_url').val());
 						$('#frmregistro').clearForm().resetForm();
-						$('#dialog').attr('title', 'Iniciando Sesion.').html('<p>Espere mientras ingresa a su escritorio.</P>');
+						$('#dialog').attr('title', 'Listo').html('<p>Se ha registrado satisfactoriamente.</p><p>Confirme su correo, ingrese al vinculo que se le proveera en el mensaje de correo.</p>');
+						setTimeout(function () {
+							$('#dialog').dialog('close');
+							History.pushState({url:$('#base_url').val()}, 'ZilevOS - Sistema Operativo', $('#base_url').val());
+						},3000);
+					}else if (response=='2') {
+						$('#frmregistro').clearForm().resetForm();
+						$('#dialog').attr('title', 'Ya esta regisrado').html('<p>Su correo ya se encuentra registrado. Inicie sesion utilizando su correo y clave.</p>');
+						setTimeout(function () {
+							$('#dialog').dialog('close');
+							History.pushState({url:$('#base_url').val()}, 'ZilevOS - Sistema Operativo', $('#base_url').val());
+						},3000);
+					}else if (response=='3') {
+						$('#frmregistro').clearForm().resetForm();
+						$('#dialog').attr('title', 'Listo').html('<p>Inicie sesion utilizando su correo y contraseña</p>');
+						setTimeout(function () {
+							$('#dialog').dialog('close');
+							History.pushState({url:$('#base_url').val()}, 'ZilevOS - Sistema Operativo', $('#base_url').val());
+						},3000);
 					}else{
-						console.log(response);
-						$('#dialog').attr('title', 'Error Inesperado.').html('<p>Ocurrio un error, vuelva a intentar.</P>');
+						$('#dialog').attr('title', 'Error Inesperado.').html(response);
 					}
 					$('#dialog').dialog({modal:true,resizable:false});
 				},

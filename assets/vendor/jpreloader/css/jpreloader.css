@@ -17,7 +17,7 @@ body{
     height: 3px;
 }
 #jpreBar {
-	background-color:#fe4620;
+	background-color:#00dbec;
 		
 	animation: progress 2s linear infinite;
 	-moz-animation: progress 2s linear infinite;

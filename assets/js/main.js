@@ -18,7 +18,7 @@
 			data: {ajax: true}
 		})
 		.done(function(e) {
-			$('body').html(e);
+			$('#ajax').html(e);
 		})
 		.fail(function() {
 			window.loaction='http://zilevos.iuxdev.com/fail';

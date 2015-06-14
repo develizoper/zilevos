@@ -1,7 +1,3 @@
-<div id="dialog" style="display: none;" title="Iniciando sesion...">
-  <p>Espere mientras ingresa a su escritorio</p>
-</div>
-
 <h1>Iniciar Sesion</h1>
 <form id="frmlogin" action="<?=base_url();?>user/login" method="post">
 	<input id="js" type="hidden" name="js" value="0">

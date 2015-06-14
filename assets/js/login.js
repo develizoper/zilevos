@@ -39,9 +39,12 @@ $(function() {
 					}else if (response=='0') {
 						$('#dialog').attr('title', 'Error de Sesion').html('<p>Verifique su nombre de usuario y contraseña.</P>');
 					}else if (response=='1') {
-						History.pushState({url:$('#base_url').val()}, 'ZilevOS - Sistema Operativo', $('#base_url').val());
 						$('#frmlogin').clearForm().resetForm();
 						$('#dialog').attr('title', 'Iniciando Sesion.').html('<p>Espere mientras ingresa a su escritorio.</P>');
+						setTimeout(function () {
+							$('#dialog').dialog('close');
+							History.pushState({url:$('#base_url').val()}, 'ZilevOS - Sistema Operativo', $('#base_url').val());
+						},1000);
 					}else{
 						console.log(response);
 						$('#dialog').attr('title', 'Error Inesperado.').html('<p>Ocurrio un error, vuelva a intentar.</P>');

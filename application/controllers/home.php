@@ -50,13 +50,7 @@ class Home extends CI_Controller {
 			$data = array(
 			    'title' => $title,
 			    'style' => $style,
-			    'script' => array(
-					'js/jquery.form.js',
-					'js/jquery.validate.js',
-					'js/jquery.validate.messages_es.js',
-					'js/jquery.validate.date.js',
-					'js/jquery.validate.alphanumeric.js',
-			    ),
+			    'script' => array(),
 			    'body' => array(
 			    	$this->load->view($view, $access, true)
 			    )
@@ -91,13 +85,7 @@ class Home extends CI_Controller {
 			$data = array(
 			    'title' => $title,
 			    'style' => $style,
-			    'script' => array(
-					'js/jquery.form.js',
-					'js/jquery.validate.js',
-					'js/jquery.validate.messages_es.js',
-					'js/jquery.validate.date.js',
-					'js/jquery.validate.alphanumeric.js'
-			    ),
+			    'script' => array(),
 			    'body' => array(
 			    	$this->load->view($view, $access, true)
 			    )
@@ -106,10 +94,25 @@ class Home extends CI_Controller {
 		}
 	}
 
+	function confirm($code='')
+	{
+		if ($code=='') {
+			echo 'ingrese codigo';
+		}else{
+			$this->load->model('moduser');
+			if ($this->moduser->confirmEmail($code)==1) {
+				echo "Correo confirmado. <a href=\"http://zilevos.iuxdev.com/login\">Inicie sesion</a>";
+			}else if ($this->moduser->confirmEmail($code)==0) {
+				echo "ocurrio un error al validar su correo.";
+			}else{
+				echo "este codigo no esta asosiado con ningun usuario.";
+			}
+		}
+	}
 	public function prueba()
 	{
-		echo isset($_POST['ajax']);
-		$this->load->view('inicio/login');
+		echo md5($_POST['mail']);
+		//$this->load->view('mailing/confirm_regist',array('code' => $code ));
 	}
 }
 

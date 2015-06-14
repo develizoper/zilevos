@@ -42,6 +42,8 @@ $route['default_controller'] = "home";
 $route['login'] = "home/login";
 $route['logout'] = "home/logout";
 $route['registrar'] = "home/registrar";
+$route['confirm'] = "home/confirm";
+$route['confirm/(:any)'] = "home/confirm/$1";
 $route['404_override'] = 'fail';
 
 

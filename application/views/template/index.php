@@ -61,6 +61,13 @@
 	<script type="text/javascript" src="<?=base_url();?>assets/js/jquery.history.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>assets/vendor/jqueryiu/jquery-ui.js"></script>
 	<script type="text/javascript" src="<?=base_url();?>assets/js/plugins.js"></script>
+	
+	<script type="text/javascript" src="<?=base_url();?>assets/js/jquery.form.js"></script>
+	<script type="text/javascript" src="<?=base_url();?>assets/js/jquery.validate.js"></script>
+	<script type="text/javascript" src="<?=base_url();?>assets/js/jquery.validate.messages_es.js"></script>
+	<script type="text/javascript" src="<?=base_url();?>assets/js/jquery.validate.date.js"></script>
+	<script type="text/javascript" src="<?=base_url();?>assets/js/jquery.validate.alphanumeric.js"></script>
+	
 	<script type="text/javascript" src="<?=base_url();?>assets/js/main.js"></script>
 
 	<?php foreach ($script as $js):?>
@@ -79,10 +86,12 @@
 </head>
 <body>
 	<input id="base_url" type="hidden" value="<?=base_url()?>">
-
-	<?php foreach ($body as $section):?>
-		<?=$section; ?>
-	<?php endforeach; ?>
+	
+	<div id="ajax">
+		<?php foreach ($body as $section):?>
+			<?=$section; ?>
+		<?php endforeach; ?>
+	</div>
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
