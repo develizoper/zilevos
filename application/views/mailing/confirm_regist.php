@@ -1,5 +1,5 @@
-<table width="600px" cellpadding="0" cellspacing="0" border="0" style="color:#344b56;font-size: 14px;margin: auto;font-family: arial">
-	<tr><td colspan="3" height="35px" style="background: #00dbec;"></td></tr>
+<table width="600px" cellpadding="0" cellspacing="0" border="0" style="color:#204A56;font-size: 14px;margin: auto;font-family: arial">
+	<tr><td colspan="3" height="35px" style="background: #01DCEF;"></td></tr>
 	<tr>
 		<td width="60px"></td>
 		<td>
@@ -18,12 +18,12 @@
 				<img style="display: block;" src="http://zilevos.iuxdev.com/assets/img/mailing/boton.jpg" alt="" width="196" height="34">
 			</a>
 			<p style="margin-bottom: 150px">
-				Si no te registraste con nosotros has caso omiso de este correo, pero te invitamos a que puedas visitarnos en <a href="http://www.zilevos.iuxdev.com" target="_blank" style="color: #00dbec;">www.zilevos.iuxdev.com</a> y disfrutar de nuestro servicio.
+				Si no te registraste con nosotros has caso omiso de este correo, pero te invitamos a que puedas visitarnos en <a href="http://www.zilevos.iuxdev.com" target="_blank" style="color: #01DCEF;">www.zilevos.iuxdev.com</a> y disfrutar de nuestro servicio.
 			</p>
 		</td>
 		<td width="60px"></td>
 	</tr>
-	<tr style="background: #344b56;">
+	<tr style="background: #204A56;">
 		<td height="80px" width="60px"><img style="display: block;" src="http://zilevos.iuxdev.com/assets/img/mailing/bg.jpg" width="100%" height="100%"></td>
 		<td>
 			<table width="100%" cellpadding="0" cellspacing="0" border="0">

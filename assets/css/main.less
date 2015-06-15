@@ -1,8 +1,9 @@
-@base          :#69b337;
-@gris          :#999999;
+@base          :#01DCEF;
+@base2         :#204A56;
+@gris          :#333333;
 
 @ff            :'Segoe UI';
-@fc            :#616264;
+@fc            :#ffffff;
 
 @fz-xl         :20px;
 @fz-lg         :18px;
@@ -63,7 +64,7 @@
 			background     : linear-gradient(to right,  @inicio, @fin);
 			-pie-background: linear-gradient(to right,  @inicio, @fin);
 		}
-		
+
 		.directional(@inicio: #555, @fin: #333, @deg: 45deg) {
 			background-repeat: repeat-x;
 			background-image: -webkit-linear-gradient(@deg, @inicio, @fin); // Safari 5.1-6, Chrome 10+
@@ -157,10 +158,41 @@
 		box-shadow: @propiedades;
 	}
 /*funciones*/
-
+.btn_task_open_hover(@color){
+	box-shadow: 0px 0px 1px #000,
+				0px 0px 5px rgba(255, 255, 255, 1) inset,
+				0px 0px 10px fade(@color, 20%) inset;
+}
+.btn_task_active_hover(@color){
+	box-shadow: 0px 0px 10px fade(@color, 60%) inset,
+				0px 0px 1px #000,
+				0px 0px 3px rgba(255, 255, 255, 0.5) inset;
+}
+.btn_task_open_active_hover(@color){
+	background:
+		-webkit-radial-gradient(bottom,ellipse cover,
+			rgba(255, 255, 255, 0.9) 0%,
+			rgba(255, 255, 255, 0.16) 65%),
+		-webkit-radial-gradient(bottom,ellipse cover,
+			rgba(255, 255, 255, 1) 0%,
+			fade(@color, 94%) 10%,
+			fade(@color, 4%) 85%);
+}
+.btn_tash(@tag,@color){
+	&.@{tag}.open:hover{
+		.btn_task_open_hover(@color);
+	}
+	&.@{tag}.active:hover{
+		.btn_task_active_hover(@color);
+	}
+	&.@{tag}.open:hover:before,
+	&.@{tag}.active:hover:before{
+		.btn_task_open_active_hover(@color);
+	}
+}
 /*general*/
 	@import url(fonts.css);
-	
+
 	/*importantes*/
 		.selection(#344b56,#fff);
 		.necesario();
@@ -182,26 +214,91 @@ html,body,main,#login,#ajax{
 	overflow: hidden;
 }
 body{
-	background: url(../img/wallpapper/wallpaper.jpg) center no-repeat;
+	background: url(../img/wallpapper/art.jpg) center no-repeat;
 	background-size: cover;
 }
 #login{
 	position: absolute;
 	z-index: 99;
-	background-color: #00dbec;
+	background-color: @base;
 }
 
 main{
-	padding-bottom: 40px;
+	&.left{
+		>#desktop{
+			bottom: 0;
+			left: 60px;
+		}
+		>#taskbar{
+			right: auto;
+			height: auto;
+			top: 0;
+			width: 60px;
+			border: none;
+			border-right: 1px solid rgba(255, 255, 255, 0.35);
+			.taskbar-container{
+				padding: 0;
+				padding-top: 60px;
+				padding-bottom: 230px;
+			}
+			#btn-start{
+			  top: 0;
+			  height: 45px;
+			  width: 100%;
+			  margin-top: 10px;
+			}
+		}
+	}
+	&.right{
+		>#desktop{
+			bottom: 0;
+			right: 60px;
+		}
+		>#taskbar{
+			left: auto;
+			height: auto;
+			top: 0;
+			width: 60px;
+			border: none;
+			border-left: 1px solid rgba(255, 255, 255, 0.35);
+			.taskbar-container{
+				padding: 0;
+				padding-top: 60px;
+				padding-bottom: 230px;
+			}
+			#btn-start{
+			  top: 0;
+			  height: 45px;
+			  width: 100%;
+			  margin-top: 10px;
+			}
+		}
+	}
+	&.top{
+		>#desktop{
+			bottom: 0;
+			top: 45px;
+		}
+		>#taskbar{
+			bottom: auto;
+			top: 0;
+			border: none;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+		}
+	}
 	>#desktop{
-		width: 100%;
-		height: 100%;
+		position: absolute;
+		top: 0;
+		bottom: 40px;
+		left: 0;
+		right: 0;
 	}
 	>#taskbar{
 		position: absolute;
+		height: 45px;
 		bottom: 0;
-		width: 100%;
-		height: 40px;
+		left: 0;
+		right: 0;
 		background: rgba(0,0,0,0.6);
 		border: none;
 		border-top: 1px solid rgba(255, 255, 255, 0.35);
@@ -211,15 +308,14 @@ main{
 			height: 100%;
 
 			padding: 0;
-			padding-left: 60px;
+			padding-left: 50px;
 			padding-right: 230px;
 		}
 		#btn-start{
 			position: absolute;
 			left: 0;
 			height: 100%;
-			width: 60px;
-			padding-right: 20px;
+			width: 50px;
 			background: url(../img/logo/btn-start.png) center no-repeat;
 			background-size: contain;
 			&:before{
@@ -238,6 +334,100 @@ main{
 			&:hover:before,&:focus:before{
 				opacity: 1;
 				filter: alpha(opacity=100);
+			}
+		}
+		#tabs{
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			>li{
+				float: left;
+				width: 60px;
+				>a{
+					display: block;
+					height: 42px;
+					margin: 1px 2px;
+					position: relative;
+					overflow: hidden;
+
+					&.open{
+						background: rgba(255, 255, 255, 0.2);
+						box-shadow: 0px 0px 2px rgba(255, 255, 255, 1) inset,0px 0px 1px #000;
+						border-radius: 1px;
+					}
+					&.open:hover{
+						background: rgba(255,255,255,0.2);
+						.btn_task_open_hover(#f00);
+						border-radius: 1px;
+					}
+	  				&.active{
+	  					background: rgba(255, 255, 255, 0.4);
+						box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.3) inset,0px 0px 1px #000;
+						border-radius: 1px;
+						border: 1px solid rgba(255, 255, 255, 0.8);
+					}
+					&.active:hover{
+						.btn_task_active_hover(#f00);
+						border-radius: 1px;
+						border: 1px solid rgba(255, 255, 255, 0.8);
+					}
+					&:before{
+						content: '';
+						position: absolute;
+						top: 0;
+						left: -50%;
+						bottom: 0;
+						width: 200%;
+						opacity: 0;
+						.transicion()
+					}
+					&>span.icon{
+						position: absolute;
+						top: 5px;
+						left: 5px;
+						bottom: 5px;
+						right: 5px;
+						background-size: contain;
+						background-position: center;
+						background-repeat: no-repeat;
+					}
+
+					&:hover:before{
+						background:
+							-webkit-radial-gradient(bottom,ellipse cover,
+								rgba(255,255,255,0.9) 0%,
+								rgba(255, 255, 255, 0) 15%);
+						opacity: .8;
+					}
+					&.open:hover:before,
+					&.active:hover:before{
+						.btn_task_open_active_hover(#f00);
+  						opacity: .8;
+					}
+
+					.btn_tash(colora,#1abc9c);
+					.btn_tash(colorb,#2ecc71);
+					.btn_tash(colorc,#3498db);
+					.btn_tash(colord,#9b59b6);
+					.btn_tash(colore,#34495e);
+					.btn_tash(colorf,#16a085);
+					.btn_tash(colorg,#27ae60);
+					.btn_tash(colorh,#2980b9);
+					.btn_tash(colori,#8e44ad);
+					.btn_tash(colorj,#2c3e50);
+					.btn_tash(colork,#f1c40f);
+					.btn_tash(colorl,#e67e22);
+					.btn_tash(colorm,#e74c3c);
+					.btn_tash(colorn,#ecf0f1);
+					.btn_tash(coloro,#95a5a6);
+					.btn_tash(colorp,#f39c12);
+					.btn_tash(colorq,#d35400);
+					.btn_tash(colorr,#c0392b);
+					.btn_tash(colors,#bdc3c7);
+					.btn_tash(colort,#7f8c8d);
+				}
 			}
 		}
 	}
@@ -262,7 +452,7 @@ main{
 			width: 60px;
 			border: none;
 			border-right: 1px solid rgba(255, 255, 255, 0.35);
-			
+
 			.taskbar-container{
 				padding: 0;
 				padding-top: 40px;
@@ -279,7 +469,7 @@ main{
 			width: 60px;
 			border: none;
 			border-left: 1px solid rgba(255, 255, 255, 0.35);
-			
+
 			.taskbar-container{
 				padding: 0;
 				padding-top: 40px;
@@ -292,6 +482,7 @@ main{
 label.has-error{
 	color: #fff;
 }
+
 
 @media (min-width:@screem-min-xxs){}
 @media (min-width:@screem-min-xs){}

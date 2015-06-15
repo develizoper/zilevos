@@ -8,23 +8,21 @@
   <p>Espere mientras ingresa a su escritorio</p>
 </div>
 
-<main class="">
-	<div id="login">
-		<div class ="body"></div>
-		<div class ="grad"></div>
-		<div class ="header">
-			<div>Zilev<span>OS</span></div>
-		</div>
-		<br>
-
-		<div class="login">
-			<?php
-				if (!isset($load)) {
-					$this->load->view('inicio/index');
-				}else{
-					$this->load->view('inicio/'.$load);
-				}
-			?>
-		</div>
+<div id="login">
+	<div class ="body"></div>
+	<div class ="grad"></div>
+	<div class ="header">
+		<div>Zilev<span>OS</span></div>
 	</div>
-</main>
+	<br>
+
+	<div class="login">
+		<?php
+			if (!isset($load)) {
+				$this->load->view('inicio/index');
+			}else{
+				$this->load->view('inicio/'.$load);
+			}
+		?>
+	</div>
+</div>

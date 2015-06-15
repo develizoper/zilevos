@@ -35,13 +35,16 @@ class Home extends CI_Controller {
 			$title='Sistema Operativo';
 			$style=array();
 			$view='desktop';
+			if (!isset($_POST['ajax'])) {
+				redirect(base_url());
+			}
 		}else{
 			$title='Inicia Sesion';
 			$style=array('vendor/login/css/style.css');
 			$view='access';
 			$access['load']='login';
 		}
-		
+
 
 		if (isset($_POST['ajax'])) {
 			$access['ajax']=true;
@@ -64,13 +67,16 @@ class Home extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect(base_url());
 	}
-	
+
 	public function registrar()
 	{
 		if($this->session->userdata('usuario')){
 			$title='Sistema Operativo';
 			$style=array();
 			$view='desktop';
+			if (!isset($_POST['ajax'])) {
+				redirect(base_url());
+			}
 		}else{
 			$title='¡Registrate ya!';
 			$style=array('vendor/login/css/style.css');
